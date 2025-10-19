@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mybook</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.jpg') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="main">
+    <div class="container1">
+        <button class="logo" onclick="location.href='/'"></button>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button class="search-button"></button>
+    </div>
+    <div class="menu-bar">
+        <a href="/" class="common-button home-button"></a>
+        <a href="/profile" class="common-button profile-button"></a>
+        <a href="/messages" class="common-button messages-button"></a>
+        <a href="/friends" class="common-button friends-button"></a>
+        <a href="/settings" class="common-button settings-button"></a>
+    </div>
+</body>
+</html>

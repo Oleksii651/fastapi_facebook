@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="modes-container">
+        <h1>Settings</h1>
+        <form method="POST" action="{{ url_for('settings') }}">
+            <div class="form-group">
+                <label for="theme">Theme:</label>
+                <select id="theme" name="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="language">Language:</label>
+                <select id="language" name="language">
+                    <option value="english">English</option>
+                    <option value="spanish">Spanish</option>
+                    <option value="french">French</option>
+                </select>
+            </div>
+            <div class="logout-group">
+                <label for="logout">Logout:</label>
+                <button type="button" id="logout" onclick="location.href='{{ url_for('logout') }}'">Logout</button>
+            </div>
+            <button type="submit">Save Settings</button>
+        </form>
+    </div>
+</body>
+</html>

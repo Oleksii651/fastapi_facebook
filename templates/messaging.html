@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messaging</title>
+</head>
+<body>
+    <h1>Messaging as {{ username }}</h1>
+    <form method="get" action="{{ url_for('messaging') }}">
+        <label>Select user:</label>
+        <select name="user" onchange="this.form.submit()">
+            <option value="">--Select--</option>
+            {% for user in users %}
+                <option value="{{ user.username }}" {% if selected_user == user.username %}selected{% endif %}>{{ user.username }}</option>
+            {% endfor %}
+        </select>
+    </form>
+    {% if selected_user %}
+    <div>
+        <h2>Chat with {{ selected_user }}</h2>
+        <div>
+            {% for msg in messages %}
+                <p><b>{{ msg.sender }}:</b> {{ msg.content }}</p>
+            {% endfor %}
+        </div>
+        <form method="post" action="{{ url_for('messaging') }}">
+            <input type="hidden" name="recipient" value="{{ selected_user }}">
+            <input type="text" name="content" placeholder="Type a message..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    {% endif %}
+</body>
+</html>
